@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">		
+
+		<nav align="center">
+		  <ul class="pagination">
+		    <li><a ng-click="prevQuestion()"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+		    <li ng-repeat="question in questions" ng-class="{active:question.id==currentQuestion}">
+		    	<a ng-click="showQuestion(question.id)">{{question.id}}</a>
+		    </li>
+		    <li><a ng-click="nextQuestion()"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+		  </ul>
+		</nav>
+		<div>
+			<h2 >
+				Q {{currentQuestion}}. {{questions[currentQuestion-1].text}} ?
+			</h2>
+			<form role="form">
+				<div class="radio ">
+				  <label>
+				    <input type="radio" name="optionsRadios" ng-model="answered[currentQuestion-1].value" value="true">
+				    True
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" ng-model="answered[currentQuestion-1].value" value="false">
+				    False
+				  </label>
+				</div>
+			  	<button type="submit" class="btn btn-primary" ng-click="nextQuestion()" ng-hide="currentQuestion==questions.length">Next</button>
+			  	<a href="#/showResult" class="btn btn-primary" ng-click="nextQuestion()" ng-show="currentQuestion==questions.length">Submit</a>
+			  	
+			</form>
+		</div>
+		<br/>
+
+	</div>
+</div>	

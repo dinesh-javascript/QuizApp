@@ -1,0 +1,27 @@
+<h2>Results</h2>
+<div class="table-responsive">
+	<table class="table">
+	  	<thead>
+	  		<tr>
+	  			<th>Question</th>
+	  			<th>Answer</th>
+	  			<th>Answered</th>
+	  			<th>Score</th>
+	  		</tr>
+	  	</thead>
+
+	  	<tbody>
+	  		<tr ng-repeat="question in questions" ng-class="{danger:answered[$index].value !== answers[$index].selected, success : answered[$index].value === answers[$index].selected}">
+	  			<td>{{question.id}}-{{question.text}}</td>
+	  			<td>{{answers[$index].selected}}</td>	  			
+	  			<td>{{answered[$index].value}}</td>
+	  			<td>{{answered[$index].value === answers[$index].selected ? 1 :0}}</td>		  			
+	  		</tr>
+	  		<tr>
+	  			<td colspan="3" ><b>Total</b></td>
+	  			<td ><b>{{score}}/{{questions.length}}</b></td>
+	  		</tr>
+	  	</tbody>
+	</table>	
+</div>
+
