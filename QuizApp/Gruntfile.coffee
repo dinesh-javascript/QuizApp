@@ -276,12 +276,8 @@
           "connect:dist:keepalive"
         ])
       grunt.task.run [
-        "clean:server"
-        "wiredep"
-        "concurrent:server"
-        "autoprefixer"
-        "connect:livereload"
-        "watch"
+        "build"
+        "connect:dist:keepalive"
       ]
       return
 
